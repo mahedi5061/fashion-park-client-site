@@ -14,20 +14,20 @@ const Header = () => {
        {/* This is header section */}
        
             <Navbar expand="lg">
-                <Navbar href="#home" className="navbar-container"><h1><span className="easy">Easy</span> <span className="rider">Rider</span></h1></Navbar>
+                <Navbar href="#home" className="navbar-container"><h1><span className="fashion">Fashion</span> <span className="park">Park</span></h1></Navbar>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="header-container" id="basic-navbar-nav">
                     <Nav>
                         <Nav.Link  ><Link to="/home" className="navbar-container">Home</Link></Nav.Link>
-                        <Nav.Link  ><Link to="/destination" className="navbar-container">Orders</Link></Nav.Link>
-                        <Nav.Link  ><Link to="/blog" className="navbar-container">Admin</Link></Nav.Link>
-                        <Nav.Link  > <Link to="/contact" className="navbar-container">Deals</Link></Nav.Link>
+                        <Nav.Link  ><Link to="/orders" className="navbar-container">Orders</Link></Nav.Link>
+                        <Nav.Link  ><Link to="/admin" className="navbar-container">Admin</Link></Nav.Link>
+                        <Nav.Link  > <Link to="/deals" className="navbar-container">Deals</Link></Nav.Link>
 
 
                         {/* This is dynamic button for login and displayName*/}
 
                         {
-                            login.email ? <Nav.Link ><Link to="/destination"><button className="btn btn-primary">{login.name}</button> </Link> </Nav.Link> : <Nav.Link><Link to="/destination"><button onClick={() => setLogin(login)} className="btn btn-primary btn-container">Login</button></Link></Nav.Link>
+                            login.email ? <Nav.Link ><Link to="/checkout"><button className="btn btn-primary">{login.name}</button> </Link> </Nav.Link> : <Nav.Link><Link to="/checkout"><button onClick={() => setLogin(login)} className="btn btn-primary btn-container">Login</button></Link></Nav.Link>
                         }
 
                         <Nav.Link> <button className="btn btn-primary " onClick={() => setLogin({})}>Sign out</button></Nav.Link>

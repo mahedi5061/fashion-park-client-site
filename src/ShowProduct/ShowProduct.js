@@ -22,7 +22,7 @@ const ShowProduct = (props) => {
           <h4>${price}</h4>
           </div>
           <div className="col-md-8">
-          <Link to={`/order/${id}`}><Button>Buy Now</Button></Link>
+          <Link to={`/checkout/${id}`}><Button>Buy Now</Button></Link>
           </div>
         </div>
         

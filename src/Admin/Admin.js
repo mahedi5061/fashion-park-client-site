@@ -1,15 +1,37 @@
+import React from 'react';
 import './Admin.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import { Form ,Button} from 'react-bootstrap';
+import {Navigation} from 'react-minimal-side-navigation';
+import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
  
-
-
 const Admin = () => {
-     
     return (
-       <div className="blog">
-        <h1>This is Blog Section....</h1>
-       </div>
+        <div className="admin">
+           
+           <Navigation
+                activeItemId="/management/members"
+                
+                items={[
+                    {
+                        title:'Manage Product',
+                        itemId: '/manageproduct',
+                         
+                         
+                    },
+                     {
+                        title: 'Add Product',
+                        itemId: '/addproduct',
+                         
+                    } ,
+                    {
+                        title: 'Edit Product',
+                        itemId: '/editproduct',
+                         
+                    },
+                ]}
+                />  
+        </div>
+
     );
 };
 
