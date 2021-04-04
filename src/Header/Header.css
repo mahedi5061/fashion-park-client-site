@@ -1,0 +1,21 @@
+ .navbar-container{
+    text-decoration: none;
+    font-size:20px;
+    color:rgb(53, 50, 50);
+    font-weight:bold;
+    margin-left:8%;
+   
+ }
+ .header-container{
+  margin-left: 40%
+}
+
+ .easy{
+   color: brown;
+   font-family:Georgia, 'Times New Roman', Times, serif;
+ }
+ .ride{
+   color:rgb(6, 66, 66);
+   font-family: Arial, Helvetica, sans-serif;
+ }
+ 

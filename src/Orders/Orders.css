@@ -1,0 +1,99 @@
+.order{
+    margin-top: 10%;
+    margin-left:15%;
+    margin-right:15%;
+     
+}
+.place-order{
+    margin-left: 90%;
+    color:white;
+    border-radius:5px;
+    border:1px solid white;
+    padding:5px;
+    background-color:chocolate;
+    font-size: 20px;
+}
+.dest-form{
+    margin:30px 100px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width:400px;
+    height:300px;
+    text-align:center;
+    background-color:gray;
+     
+}
+.dest-form input{
+    display:block;
+    margin-top:12px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius:5px;
+    width:300px;
+    margin-left:10%;
+}
+ 
+.pickFromTo{
+    margin-bottom: 3%;
+     margin-top: 5px; 
+     padding-right:60%;
+     font-size:17px;
+     color: black;
+     
+}
+.pickToFrom{
+    margin-bottom: 3%;
+    margin-top: 5px; 
+    padding-right:60%;
+    font-size:17px;
+    color:black
+}
+.searchBtn{
+    width:300px;
+    padding: 5px;
+    margin-left:-5%;
+    margin-top: 3%;
+    border-radius: 5px;
+    background-color:chocolate;
+    color:white;
+    border: 1px solid gray;
+    height:45px
+}
+.map{
+    margin-top:3%;
+    margin-left:-15%;
+     
+}
+.common-card{
+    margin-top:5%;
+    background-color:rgb(243, 239, 239);
+    width:350px;
+    margin-left:5%;
+    border-radius: 5px;
+    padding:10px
+}
+.area{
+    background-color:coral;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.search-form{
+    background-color:white;
+    border: 1px solid white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    height:450px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .common-card{
+        margin-top:5%;
+        background-color:rgb(243, 239, 239);
+        width:350px;
+        margin-left:5%;
+        border-radius: 5px;
+        padding:10px
+    }
+  }
+ 
