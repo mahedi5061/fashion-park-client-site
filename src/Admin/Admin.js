@@ -13,11 +13,23 @@ const Admin = () => {
     const [manageProduct,setManageProduct]=useState(true);
     const [imageUrl,setImageUrl]=useState(null);
     const onSubmit = data => {
+         
         const eventData = {
-           name: data.name,
-           imageUrl: imageUrl
-
-        }
+            data:data,
+            imageUrl:imageUrl
+            
+        };
+        console.log(data)
+        fetch(`http://localhost:5055/addProduct`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(eventData)
+        })
+        .then(res =>{
+            console.log('Successfully',res)
+        })
     };
     const handleProduct=()=>{
         setManageProduct(false)
@@ -26,7 +38,6 @@ const Admin = () => {
         setManageProduct(true)
     }
     const imageUpload=event => {
-        console.log(event.target.files[0])
         const imageData=new FormData();
         imageData.set('key','d30ee21879b0a937f8035c54640a59a9');
         imageData.append('image',event.target.files[0]);
@@ -49,11 +60,11 @@ const Admin = () => {
   {
     manageProduct? <form className="form" onSubmit={handleSubmit(onSubmit)}>
        
-       <input name="Product Name" type="text" placeholder="Product Name"  />
+       <input name="name" type="text" placeholder="Product Name" ref={register} />
        
-       <input name="Weight" type="value"  placeholder="Weight"  className="ml-3"/>
-       <input name="Price" type="value" placeholder="Price"  className="ml-3"/> 
-       <input type="file" placeholder="Price" name="upload photo" onChange={imageUpload} className="ml-3 mt-3"/>
+       <input name="weight"  type="text"  placeholder="Weight" ref={register} className="ml-3"/>
+       <input name="price" type="text" placeholder="Price" ref={register} className="ml-3"/> 
+       <input type="file"   onChange={imageUpload} className="ml-3 mt-3"/>
        <br></br>
        <input className="mt-3" type="submit" />
      </form>:<h3>success</h3>

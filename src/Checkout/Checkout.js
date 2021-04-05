@@ -4,26 +4,29 @@ import { userContext } from '../App';
 import './Checkout.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from 'react-router';
-import fakeData from '../fakeData.json';
+ 
 import { Table } from 'react-bootstrap';
 
 
 const Checkout = () => {
     const { id } = useParams();
-    console.log(id)
     const [orderBtn, setOrderBtn] = useState({});
     const [placeOrderBtn, setPlaceOrderBtn] = useState(true);
     const { handleSubmit } = useForm();
     const [login, setLogin] = useContext(userContext);
-    const product = fakeData.find(pd => pd.id == id);
+     
+    
     useEffect(() => {
-        setOrderBtn(product);
-    }, [id])
-
+      fetch('http://localhost:5055/product/'+id)
+      .then(res=>res.json())
+      .then(data =>{
+        setOrderBtn(data[0])
+      })
+  },[id])
+  
     const handleOrder = () => {
         setPlaceOrderBtn(false);
     }
-console.log(placeOrderBtn)
 
     return (
         <div >
@@ -42,9 +45,9 @@ console.log(placeOrderBtn)
   <tbody>
     <tr>
      
-      <td>{orderBtn.name}</td>
+      <td>{orderBtn?.data?.name}</td>
       <td>1</td>
-      <td>${orderBtn.price}</td>
+      <td>${orderBtn?.data?.price}</td>
     </tr>
      
   </tbody>

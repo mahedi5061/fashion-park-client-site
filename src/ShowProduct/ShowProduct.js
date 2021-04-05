@@ -5,24 +5,27 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './ShowProduct.css'
 
 const ShowProduct = (props) => {
+   
   const style = {
-    marginTop: '10%', textDecoration: 'none', marginLeft: '10%', textAlign: 'center', borderRadius: '15px', backgroundColor: 'white', height: '300px'
+    marginTop: '10%', textDecoration: 'none', marginLeft: '10%', textAlign: 'center', borderRadius: '15px', backgroundColor: 'white'
   }
 
-  const { price, image,id} = props.pd;
-  
+  const { name, price} = props.pd.data;
+   const {imageUrl,_id}=props.pd;
+
   return (
   <>
     <Link  className="card-container" style={style}>
       <Card.Body>
-        <Card.Img style={{ width: '200px', marginTop: '25px' }} src={image} />
+        <Card.Img style={{ width: '150px', marginTop: '25px' }}  src={imageUrl} />
         <Card.Body>
+        <h5>{name}</h5>
         <div className="row price-btn">
           <div className="col-md-4">
           <h4>${price}</h4>
           </div>
           <div className="col-md-8">
-          <Link to={`/checkout/${id}`}><Button>Buy Now</Button></Link>
+          <Link to={`/checkout/${_id}`}><Button>Buy Now</Button></Link>
           </div>
         </div>
         
