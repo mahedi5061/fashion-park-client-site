@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { userContext } from '../App';
 import './Checkout.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
  
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -15,12 +15,13 @@ const Checkout = () => {
     const [placeOrderBtn, setPlaceOrderBtn] = useState(true);
     const { register, handleSubmit, watch, errors } =useForm();
     const [login, setLogin] = useContext(userContext);
+    const history= useHistory()
     const onSubmit = data =>{
       const orderDetails = {
         ...login,
         shipment:data,
         ...orderBtn,
-        orderTime: new Date()
+      
       }
  
         fetch('http://localhost:5055/addOrder',{
@@ -36,7 +37,7 @@ const Checkout = () => {
             alert('Your order is successfully placed.')
           }
         })
-      
+    history.push("/shipment")
     };
     
     useEffect(() => {
@@ -46,6 +47,7 @@ const Checkout = () => {
         setOrderBtn(data[0])
       })
   },[id])
+  
 
     const handleOrder = () => {
         setPlaceOrderBtn(false);
@@ -77,7 +79,7 @@ const Checkout = () => {
   </Table>
   <button onClick={handleOrder} className="mt-3 place-order">place order</button></div>:
 
-  <form className="ship-form" onSubmit={handleSubmit(onSubmit)}>
+  <form  className="ship-form" onSubmit={handleSubmit(onSubmit)} >
        
        <input name="name" defaultValue={login.name} ref={register({ required: true })} placeholder="Your Name"/>
        {errors.name && <span className="error">Name is required</span>}
@@ -91,7 +93,7 @@ const Checkout = () => {
        <input name="phoneNumber" ref={register({ required: true })} placeholder="Your Phone Number"/>
        {errors.phoneNumber && <span className="error">Phone number is required</span>}
 
-       <Link to="/shipment"><input type="submit" /></Link>
+        <input  type="submit"/> 
      </form>  
    
         }

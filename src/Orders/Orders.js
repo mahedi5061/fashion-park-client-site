@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+ 
+import { userContext } from '../App';
+import UserOrder from '../UserOrder/UserOrder';
 
 const Orders = () => {
+    const [orderProduct,setOrderProduct]=useState([])
+    const [login, setLogin] = useContext(userContext);
+    useEffect(() => {
+        fetch('http://localhost:5055/orderReview?email='+login.email)
+        .then(res=>res.json())
+        .then(data=>setOrderProduct(data))
+    },[])
+     
     return (
         <div>
-            <h2>Order section is comming</h2> 
+            <h2 className="ship-form">Your Order is {orderProduct.length}</h2> 
+            {
+                orderProduct.map(pd=><UserOrder pd={pd} key={pd._id}></UserOrder>)
+            }
+            
         </div>
     );
 };
