@@ -27,7 +27,7 @@ const Header = () => {
                         {/* This is dynamic button for login and displayName*/}
 
                         {
-                            login.email ? <Nav.Link ><Link to="/checkout"><button className="btn btn-primary">{login.name}</button> </Link> </Nav.Link> : <Nav.Link><Link to="/checkout"><button onClick={() => setLogin(login)} className="btn btn-primary btn-container">Login</button></Link></Nav.Link>
+                            login.email ? <Nav.Link ><Link to="/"><button className="btn btn-primary">{login.name}</button></Link></Nav.Link> : <Nav.Link><Link to="/login"><button onClick={() => setLogin(login)} className="btn btn-primary btn-container">Login</button></Link></Nav.Link>
                         }
 
                         <Nav.Link> <button className="btn btn-primary " onClick={() => setLogin({})}>Sign out</button></Nav.Link>

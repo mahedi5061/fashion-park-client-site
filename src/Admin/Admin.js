@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Admin.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useForm } from "react-hook-form";
@@ -6,12 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus,faEdit,faThLarge} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ManageProduct from '../ManageProduct/ManageProduct';
  
 
 const Admin = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [manageProduct,setManageProduct]=useState(true);
     const [imageUrl,setImageUrl]=useState(null);
+    const [manageAllProduct,setManageAllProduct]=useState([]);
     const onSubmit = data => {
          
         const eventData = {
@@ -19,7 +21,7 @@ const Admin = () => {
             imageUrl:imageUrl
             
         };
-        console.log(data)
+        
         fetch(`http://localhost:5055/addProduct`,{
             method: 'POST',
             headers: {
@@ -31,6 +33,15 @@ const Admin = () => {
             console.log('Successfully',res)
         })
     };
+
+    useEffect(() => {
+        fetch('http://localhost:5055/products')
+        .then(res=>res.json())
+        .then(data =>{
+            setManageAllProduct(data)
+        })
+    },[])
+
     const handleProduct=()=>{
         setManageProduct(false)
     }
@@ -67,7 +78,12 @@ const Admin = () => {
        <input type="file"   onChange={imageUpload} className="ml-3 mt-3"/>
        <br></br>
        <input className="mt-3" type="submit" />
-     </form>:<h3>success</h3>
+     </form>:<>
+            {
+                manageAllProduct.map(pd=><ManageProduct pd={pd} key={pd._id}></ManageProduct>)
+            }
+
+     </>
   }
        
       

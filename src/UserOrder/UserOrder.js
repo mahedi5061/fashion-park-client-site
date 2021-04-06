@@ -1,11 +1,12 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import './UserOrder.css'
 
 const UserOrder = (props) => {
      const {name,email,phoneNumber}=props.pd.shipment;
      const {price}=props.pd.data;
     return (
-        <div>
+        <div className="orderReview">
             <Table striped bordered hover>
                 <thead>
                     <tr>
