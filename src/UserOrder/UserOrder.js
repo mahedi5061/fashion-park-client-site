@@ -7,6 +7,9 @@ const UserOrder = (props) => {
      const {price}=props.pd.data;
     return (
         <div className="orderReview">
+
+        {/* this is order page */} 
+        
             <Table striped bordered hover>
                 <thead>
                     <tr>

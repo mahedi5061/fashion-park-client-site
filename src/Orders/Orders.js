@@ -6,8 +6,11 @@ import UserOrder from '../UserOrder/UserOrder';
 const Orders = () => {
     const [orderProduct,setOrderProduct]=useState([])
     const [login, setLogin] = useContext(userContext);
+
+    //loaded user orders information matching by email.
+
     useEffect(() => {
-        fetch('http://localhost:5055/orderReview?email='+login.email)
+        fetch('https://stormy-river-98706.herokuapp.com/orderReview?email='+login.email)
         .then(res=>res.json())
         .then(data=>setOrderProduct(data))
     },[])

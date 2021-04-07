@@ -23,8 +23,9 @@ const Checkout = () => {
         ...orderBtn,
       
       }
- 
-        fetch('http://localhost:5055/addOrder',{
+ //add order in database.
+
+        fetch('https://stormy-river-98706.herokuapp.com/addOrder',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -40,8 +41,10 @@ const Checkout = () => {
     history.push("/shipment")
     };
     
+    //load single product match by product id.
+
     useEffect(() => {
-      fetch('http://localhost:5055/product/'+id)
+      fetch('https://stormy-river-98706.herokuapp.com/product/'+id)
       .then(res=>res.json())
       .then(data =>{
         setOrderBtn(data[0])
@@ -55,6 +58,8 @@ const Checkout = () => {
 
     return (
         <div >
+        {/* show the checkout product */}
+        
             {
           placeOrderBtn ?
           <div className ="order">  

@@ -7,10 +7,10 @@ import './ManageProduct.css'
 const ManageProduct = (props) => {
     const { name, price, weight } = props.pd.data;
     const {_id}=props.pd;
-    
+    //delete item from database.
     const handleDeleteItem=(id) => {
         
-        fetch('http://localhost:5055/productDelete/'+id,{
+        fetch('https://stormy-river-98706.herokuapp.com/productDelete/'+id,{
             method: 'DELETE',
         })
         .then(res=>res.json())

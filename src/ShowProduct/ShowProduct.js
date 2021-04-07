@@ -17,7 +17,7 @@ const ShowProduct = (props) => {
   <>
     <Link  className="card-container" style={style}>
       <Card.Body>
-        <Card.Img style={{ width: '150px', marginTop: '25px' }}  src={imageUrl} />
+        <Card.Img style={{ width: '200px',height: '150px', marginTop: '25px' }}  src={imageUrl} />
         <Card.Body>
         <h5>{name}</h5>
         <div className="row price-btn">

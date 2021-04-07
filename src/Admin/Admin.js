@@ -21,8 +21,8 @@ const Admin = () => {
             imageUrl:imageUrl
             
         };
-        
-        fetch(`http://localhost:5055/addProduct`,{
+        //addProduct in database
+        fetch(`https://stormy-river-98706.herokuapp.com/addProduct`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,13 +34,16 @@ const Admin = () => {
         })
     };
 
+   //load all Product 
     useEffect(() => {
-        fetch('http://localhost:5055/products')
+        fetch('https://stormy-river-98706.herokuapp.com/products')
         .then(res=>res.json())
         .then(data =>{
             setManageAllProduct(data)
         })
     },[])
+
+    //conditionally rendering.
 
     const handleProduct=()=>{
         setManageProduct(false)
@@ -48,6 +51,7 @@ const Admin = () => {
     const handleAddProduct=()=>{
         setManageProduct(true)
     }
+    //image upload at third party library.
     const imageUpload=event => {
         const imageData=new FormData();
         imageData.set('key','d30ee21879b0a937f8035c54640a59a9');
@@ -68,6 +72,9 @@ const Admin = () => {
       <Link  onClick={handleAddProduct} to="#addproduct" className="nv"><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon> Add Product</Link><br></br>
       <Link   to="#editproduct" className="nv"><FontAwesomeIcon icon={faEdit}></FontAwesomeIcon> Edit Product</Link>
      </div>
+     
+     {/* conditionally rendering add product and manageProduct */}
+
   {
     manageProduct? <form className="form" onSubmit={handleSubmit(onSubmit)}>
        

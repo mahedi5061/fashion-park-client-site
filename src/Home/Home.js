@@ -4,6 +4,7 @@ import ShowProduct from '../ShowProduct/ShowProduct';
 import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+//spinner design property.
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -18,9 +19,10 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    //data load in home page with time interval
     useEffect(() => {
         setInterval(function(){ 
-            fetch('http://localhost:5055/products')
+            fetch('https://stormy-river-98706.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)

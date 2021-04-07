@@ -7,7 +7,7 @@ const Shipment = () => {
     const [login, setLogin] = useContext(userContext);
 
     useEffect(() => {
-        fetch('http://localhost:5055/orderReview?email='+login.email)
+        fetch('https://stormy-river-98706.herokuapp.com/orderReview?email='+login.email)
         .then(res=>res.json())
         .then(data=>setOrderReview(data))
     },[])
