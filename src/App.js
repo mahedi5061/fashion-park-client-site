@@ -17,12 +17,14 @@ import Admin from "./Admin/Admin";
 import Orders from "./Orders/Orders";
 import Shipment from "./Shipment/Shipment";
 export const userContext = createContext();
+export const productContext = createContext();
 
 function App() {
   const [login, setLogin] = useState({});
+  const [products, setProducts] = useState([]);
   return (
     <userContext.Provider value={[login, setLogin]}>
-
+    <productContext.Provider value={[products, setProducts]}>
       <div className="App">
         <Router>
           <Header></Header>
@@ -65,6 +67,7 @@ function App() {
           </Switch>
         </Router>
       </div>
+      </productContext.Provider>
     </userContext.Provider>
   );
 }

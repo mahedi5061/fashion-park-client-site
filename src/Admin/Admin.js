@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Admin.css';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useForm } from "react-hook-form";
@@ -7,13 +7,15 @@ import { faPlus,faEdit,faThLarge} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ManageProduct from '../ManageProduct/ManageProduct';
+import { productContext } from '../App';
  
-
+ 
 const Admin = () => {
+    const [products, setProducts]=useContext(productContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [manageProduct,setManageProduct]=useState(true);
     const [imageUrl,setImageUrl]=useState(null);
-    const [manageAllProduct,setManageAllProduct]=useState([]);
+    const [loading,setLoading]=useState(false)
     const onSubmit = data => {
          
         const eventData = {
@@ -33,17 +35,8 @@ const Admin = () => {
             console.log('Successfully',res)
         })
     };
-
-   //load all Product 
-    useEffect(() => {
-        fetch('https://stormy-river-98706.herokuapp.com/products')
-        .then(res=>res.json())
-        .then(data =>{
-            setManageAllProduct(data)
-        })
-    },[])
-
-    //conditionally rendering.
+ 
+    // conditionally rendering.
 
     const handleProduct=()=>{
         setManageProduct(false)
@@ -86,8 +79,9 @@ const Admin = () => {
        <br></br>
        <input className="mt-3" type="submit" />
      </form>:<>
+      
             {
-                manageAllProduct.map(pd=><ManageProduct pd={pd} key={pd._id}></ManageProduct>)
+                products.map(pd=><ManageProduct pd={pd} key={pd._id}></ManageProduct>)
             }
 
      </>

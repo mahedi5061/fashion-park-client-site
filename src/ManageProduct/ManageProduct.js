@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import './ManageProduct.css'
+import './ManageProduct.css';
+
 
 const ManageProduct = (props) => {
+    const [deleteItem,setDeleteItem]=useState("")
     const { name, price, weight } = props.pd.data;
     const {_id}=props.pd;
     //delete item from database.
@@ -15,11 +17,12 @@ const ManageProduct = (props) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            alert('Item delete successfully')
+            setDeleteItem("Your Item is Deleted Successfully!!")
         })
     }
     return (
         <div className="manageProduct" >
+        <h3 className="text-center text-success mb-5" >{deleteItem}</h3>
             <Table  striped bordered hover>
                 <thead>
                     <tr>
