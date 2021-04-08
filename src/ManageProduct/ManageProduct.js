@@ -20,6 +20,7 @@ const ManageProduct = (props) => {
             setDeleteItem("Your Item is Deleted Successfully!!")
         })
     }
+    console.log(deleteItem)
     return (
         <div className="manageProduct" >
         <h3 className="text-center text-success mb-5" >{deleteItem}</h3>

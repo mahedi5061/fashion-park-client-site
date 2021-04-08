@@ -34,9 +34,9 @@ function App() {
               <Home></Home>
             </Route>
 
-            <Route path="/admin">
+            <PrivateRoute path="/admin">
               <Admin></Admin>
-            </Route>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>

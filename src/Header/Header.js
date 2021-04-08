@@ -14,7 +14,7 @@ const Header = () => {
        {/* This is header section */}
        
             <Navbar expand="lg">
-                <Navbar href="#home" className="navbar-container"><h1><span className="fashion">Re</span><span className="park">Cycling</span></h1></Navbar>
+                <Navbar href="#home" className="navbar-container"><h1><span className="fashion">Fashion</span><span className="park"> Park</span></h1></Navbar>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="header-container" id="basic-navbar-nav">
                     <Nav>

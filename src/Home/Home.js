@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         '& > * + *': {
-            marginLeft: theme.spacing(50),
+            marginLeft: theme.spacing(80),
         },
     },
 }));
@@ -35,18 +35,18 @@ const Home = () => {
   
     const classes = useStyles();
     return (
-        <productContext.Provider value={[products, setProducts]}>
+        <>
             <div className="row">
 
                 {
                     loading ? <div className={classes.root}>
-                        <CircularProgress />
-                        <CircularProgress color="secondary" />
+                        
+                        <CircularProgress color="secondary" className="ml-5"/>
                     </div> : products.map(pd => <ShowProduct pd={pd} key={pd._id}></ShowProduct>)
                 }
             </div>
 
-        </productContext.Provider>
+        </>
     );
 };
 
