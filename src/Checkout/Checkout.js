@@ -6,8 +6,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useHistory, useParams } from 'react-router';
  
 import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-
+ 
 
 const Checkout = () => {
     const { id } = useParams();

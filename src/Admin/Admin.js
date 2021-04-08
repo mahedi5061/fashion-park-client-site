@@ -15,7 +15,6 @@ const Admin = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [manageProduct,setManageProduct]=useState(true);
     const [imageUrl,setImageUrl]=useState(null);
-    const [loading,setLoading]=useState(false)
     const onSubmit = data => {
          
         const eventData = {
@@ -79,7 +78,8 @@ const Admin = () => {
        <br></br>
        <input className="mt-3" type="submit" />
      </form>:<>
-      
+            {/* Here products import from context api. */}
+
             {
                 products.map(pd=><ManageProduct pd={pd} key={pd._id}></ManageProduct>)
             }
