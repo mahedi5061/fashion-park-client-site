@@ -1,4 +1,5 @@
- This is a simple project of easy rider,where a people easy travel from one place to another place by this application. 
- I use react,react route, react bootstrap,firebase authentication and some of react materials and also use google map to easy get a route.
+ This is a simple project about fashion park ecommerce site where i uses react,node,mongodb,firebase authentication etc.
+ 
+ if you face any problem to get the update result please reload the page .
  
  My live site link:  https://urbans-rider.web.app/
